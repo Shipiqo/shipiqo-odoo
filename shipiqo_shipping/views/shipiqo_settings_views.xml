@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_shipiqo_settings_form" model="ir.ui.view">
+        <field name="name">shipiqo.settings.form</field>
+        <field name="model">shipiqo.settings</field>
+        <field name="arch" type="xml">
+            <form string="Shipiqo Settings">
+                <sheet>
+                    <group>
+                        <field name="shop_url"/>
+                        <field name="api_key" password="True"/>
+                        <field name="webhook_secret" password="True"/>
+                        <field name="api_endpoint"/>
+                        <field name="embed_base_url"/>
+                        <field name="is_active"/>
+                        <field name="last_sync_at" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_shipiqo_settings_tree" model="ir.ui.view">
+        <field name="name">shipiqo.settings.tree</field>
+        <field name="model">shipiqo.settings</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="shop_url"/>
+                <field name="is_active"/>
+                <field name="last_sync_at"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_shipiqo_settings" model="ir.actions.act_window">
+        <field name="name">Shipiqo Settings</field>
+        <field name="res_model">shipiqo.settings</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_shipiqo_root" name="Shipiqo" parent="stock.menu_stock_config_settings" sequence="50"/>
+    <menuitem id="menu_shipiqo_settings" name="Connection" parent="menu_shipiqo_root" action="action_shipiqo_settings"/>
+    <menuitem id="menu_shipiqo_connect_wizard" name="Connect to Shipiqo" parent="menu_shipiqo_root"
+              action="action_shipiqo_connect_wizard"/>
+</odoo>

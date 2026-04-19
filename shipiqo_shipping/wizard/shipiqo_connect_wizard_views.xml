@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_shipiqo_connect_wizard_form" model="ir.ui.view">
+        <field name="name">shipiqo.connect.wizard.form</field>
+        <field name="model">shipiqo.connect.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Connect to Shipiqo">
+                <group>
+                    <field name="shop_url"/>
+                    <field name="auth_url" widget="url"/>
+                </group>
+                <div class="alert alert-info">
+                    <p><b>Step 1:</b> Click the link above to open Shipiqo and authorize this Odoo instance.</p>
+                    <p><b>Step 2:</b> Paste the API Key Shipiqo gives you below, then click Save.</p>
+                </div>
+                <group>
+                    <field name="api_key" password="True"/>
+                    <field name="webhook_secret" password="True"/>
+                </group>
+                <footer>
+                    <button name="action_save" type="object" string="Connect" class="btn-primary"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_shipiqo_connect_wizard" model="ir.actions.act_window">
+        <field name="name">Connect to Shipiqo</field>
+        <field name="res_model">shipiqo.connect.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

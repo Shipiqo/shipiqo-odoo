@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="shipiqo_shipping.LifecycleWidget">
+        <div class="o_shipiqo_widget">
+            <iframe t-if="state.url" t-att-src="state.url" frameborder="0"
+                    style="width: 100%; min-height: 520px; border: 0;"/>
+            <div t-else="" class="alert alert-warning">
+                Save the order first to load the Shipiqo widget.
+            </div>
+        </div>
+    </t>
+</templates>

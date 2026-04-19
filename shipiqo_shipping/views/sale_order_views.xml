@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_form_shipiqo" model="ir.ui.view">
+        <field name="name">sale.order.form.shipiqo</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Shipiqo" name="shipiqo">
+                    <field name="shipiqo_widget_url" invisible="1"/>
+                    <field name="shipiqo_shipment_id" invisible="1"/>
+                    <field name="shipiqo_pending_rate" readonly="1" attrs="{'invisible': [('shipiqo_pending_rate', '=', False)]}"/>
+                    <div class="o_shipiqo_widget_container">
+                        <widget name="shipiqo_lifecycle_widget"/>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
